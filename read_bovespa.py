@@ -1,5 +1,3 @@
-import pandas as pd
-
 def convert_to_decimals(x):
     return float(x[:-2] + '.' + x[-2:])
 
@@ -8,6 +6,8 @@ def read_Bovespa(File):
     this function convert file "COTAHIST_AXXX" to DataFrame
     '''
 
+    import pandas as pd
+    
     deli = [2,8,2,12,3,12,10,3,4,13,13,13,13,13,13,13,5,18,18,13,1,8,7,13,11,4]
 
     df = pd.read_fwf(File,widths=deli,header=None,converters={9:convert_to_decimals,
